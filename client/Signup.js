@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {signup} from "../auth/index.js"
+import {signup,signout} from "./apiauth.js"
 import {Link} from "react-router-dom"
 class Signup extends Component{
 constructor(props){

@@ -1,5 +1,8 @@
 import React,{Component} from "react"
-import {signin} from "./apiauth.js"
+import {signin,signout} from "./apiauth.js"
+//<button onClick={()=>signout(()=>history.push('/'))} > SIGNOUT </span> to implement signout and redirect to /    
+
+
 class Signin extends Component{
 constructor(props){
 super(props);
@@ -67,7 +70,7 @@ if(typeof window!=="undefined"){   //to check if headers are loaded
 
 render(){
 
-if(this.state.redirect){
+if(this.state.redirecttoHome){
   return <Redirect to={Home} />
 }
 
