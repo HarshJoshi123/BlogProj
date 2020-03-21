@@ -2,7 +2,6 @@ import React,{Component} from "react"
 import {signin,signout} from "./apiauth.js"
 //<button onClick={()=>signout(()=>history.push('/'))} > SIGNOUT </span> to implement signout and redirect to /    
 
-
 class Signin extends Component{
 constructor(props){
 super(props);
@@ -10,7 +9,6 @@ this.state={
 email:"",
 password:"",
 err:"",
-open:false,
 redirecttoHome:false,
 loading:false
 }
@@ -42,12 +40,12 @@ const user={
 
 signin(user).then(data=>{
 	if(data.error){
-		this.setState({err:data.error,open:false,loading:false})}
+		this.setState({err:data.error,loading:false})}
     else if(data.err){
-		this.setState({err:data.err,open:false,loading:false})}
+		this.setState({err:data.err,loading:false})}
      
     else{
-    	authenticate(data,()=>{
+    	authenticate(data,()=>{ //authenticate stores token and now we need to redirect
         this.setState({
           redirect:true,
           loading:false
